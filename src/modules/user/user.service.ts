@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { User } from "../auth/entities/auth.entity";
+import { User, UserRole } from "../auth/entities/auth.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { UpdateProfileDTO } from "../auth/dto/update.dto";
@@ -43,6 +43,22 @@ export class UserService {
 
       await this.userRepo.delete({ id });
       return 'User Deleted!';
+   }
+
+   async getAllAuthors(): Promise<User[]> {
+      const authors = await this.userRepo.find({
+         where: { role: UserRole.AUTHOR },
+         relations: ['books'],
+         select: {
+            name: true,
+            email: true,
+            books: {
+               title: true,
+               price: true
+            }
+         }
+      });
+      return authors;
    }
 
 }

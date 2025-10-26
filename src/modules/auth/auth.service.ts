@@ -1,6 +1,6 @@
 import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { User } from "./entities/auth.entity";
-import { Repository } from "typeorm";
+import { Repository, DeepPartial } from "typeorm";
 import * as bcrypt from 'bcrypt';
 import { UserDTO } from "./dto/user.dto";
 import { InjectRepository } from "@nestjs/typeorm";
@@ -25,7 +25,7 @@ export class AuthService {
          password: hashedPassword
       }
 
-      const user = this.authRepo.create(newUser);
+      const user = this.authRepo.create(newUser as DeepPartial<User>);
       return await this.authRepo.save(user);
    }
 
@@ -49,6 +49,7 @@ export class AuthService {
    private generateToken(user: UserDTO, id: any) {
       const payload = {
          id: id,
+         name: user.name,
          email: user.email,
          role: user.role
       }

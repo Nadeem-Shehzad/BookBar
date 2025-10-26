@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { User } from './src/modules/auth/entities/auth.entity';
+import { User, UserRole } from './src/modules/auth/entities/auth.entity';
 import 'dotenv/config';
 
 const AppDataSource = new DataSource({
@@ -35,7 +35,7 @@ async function seed() {
          name: 'Admin',
          email: adminEmail,
          password: hashedPassword,
-         role: 'admin',
+         role: UserRole.ADMIN,
       });
 
       await userRepo.save(adminUser);
