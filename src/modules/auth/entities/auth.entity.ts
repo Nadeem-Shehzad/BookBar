@@ -1,5 +1,6 @@
 import { Book } from "src/modules/book/entities/book.entities";
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Review } from "src/modules/review/entities/review.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne } from "typeorm";
 
 
 export enum UserRole {
@@ -29,6 +30,9 @@ export class User {
    })
    role: UserRole
 
+   @OneToOne(() => Review, (review) => review.user)
+   review: Review
+
    @OneToMany(() => Book, (book) => book.author)
-   books: Book[] 
+   books: Book[]
 }

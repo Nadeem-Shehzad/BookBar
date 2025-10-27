@@ -4,7 +4,7 @@ import {
 } from "@nestjs/common";
 import { AuthorService } from "./author.service";
 import { ResponseInterceptor } from "src/common/interceptors/response.interceptor";
-import { JwtAuthGuard } from "src/common/guards/jwt-auth-guard";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guard";
 import { BookDTO } from "./dto/book.dto";
 import { AuthorData } from "src/common/decorators/author-data";
 import { AuthorDTO } from "./dto/author.dto";

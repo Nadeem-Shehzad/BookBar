@@ -8,7 +8,7 @@ import { EmailValidator } from "src/common/validators/email-validator";
 import { UserModule } from "../user/user.module";
 import { JwtModule } from "@nestjs/jwt";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { JwtAuthGuard } from "src/common/guards/jwt-auth-guard";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guard";
 
 
 @Module({

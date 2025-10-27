@@ -1,5 +1,6 @@
 import { User } from "src/modules/auth/entities/auth.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Review } from "src/modules/review/entities/review.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export enum BooksCategory {
    IT = 'IT',
@@ -35,4 +36,7 @@ export class Book {
       default: BooksCategory.ENTERTAINMENT
    })
    category: BooksCategory
+
+   @OneToMany(() => Review, (review) => review.book)
+   review: Review
 }

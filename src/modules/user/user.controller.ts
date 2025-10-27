@@ -3,7 +3,7 @@ import {
    Put, UseGuards, UseInterceptors
 } from "@nestjs/common";
 import { UserService } from "./user.service";
-import { JwtAuthGuard } from "src/common/guards/jwt-auth-guard";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guard";
 import { GetUserID } from "src/common/decorators/get-user-id";
 import { ResponseInterceptor } from "src/common/interceptors/response.interceptor";
 import { UpdateProfileDTO } from "../auth/dto/update.dto";

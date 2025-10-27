@@ -5,6 +5,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import configuration from './config/configuration';
 import { AuthorModule } from './modules/author/author.module';
+import { ReviewModule } from './modules/review/review.module';
 
 
 @Module({
@@ -29,7 +30,8 @@ import { AuthorModule } from './modules/author/author.module';
       }),
       AuthModule,
       UserModule,
-      AuthorModule
+      AuthorModule,
+      ReviewModule
    ],
 })
 

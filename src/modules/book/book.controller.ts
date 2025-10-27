@@ -1,4 +1,7 @@
-import { Controller, Get, Param, ParseIntPipe, Query, UseInterceptors } from "@nestjs/common";
+import { 
+   Controller, Get, Param, ParseIntPipe, 
+   Query, UseInterceptors 
+} from "@nestjs/common";
 import { BookService } from "./book.service";
 import { ResponseInterceptor } from "src/common/interceptors/response.interceptor";
 import { BooksCategory } from "./entities/book.entities";
